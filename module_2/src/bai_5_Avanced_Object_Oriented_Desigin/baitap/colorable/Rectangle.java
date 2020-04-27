@@ -1,11 +1,8 @@
-package bai_4_ke_thua.thuchanh;
+package bai_5_Avanced_Object_Oriented_Desigin.baitap.colorable;
 
-
-
-public class Rectangle extends Shape  {
+public class Rectangle extends Shape {
     private double width = 1.0;
     private double length = 1.0;
-    public double result =0;
 
     public Rectangle() {
     }
@@ -54,21 +51,4 @@ public class Rectangle extends Shape  {
                 + ", which is a subclass of "
                 + super.toString();
     }
-
-
-
-    public static void main(String[] args) {
-        Rectangle rectangle = new Rectangle();
-        System.out.println(rectangle);
-
-        rectangle = new Rectangle(2.3, 5.8);
-        System.out.println(rectangle);
-
-        rectangle = new Rectangle(2.5, 3.8, "orange", true);
-        System.out.println(rectangle);
-    }
-
-
-
 }
-

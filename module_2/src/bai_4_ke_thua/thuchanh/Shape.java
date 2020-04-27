@@ -1,6 +1,6 @@
 package bai_4_ke_thua.thuchanh;
 
-import bai_5_Avanced_Object_Oriented_Desigin.baitap.colorable.Colorable;
+
 
 public class Shape   {
 

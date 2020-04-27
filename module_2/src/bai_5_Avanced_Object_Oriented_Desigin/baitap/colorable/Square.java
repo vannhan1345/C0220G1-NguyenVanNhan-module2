@@ -1,10 +1,6 @@
-package bai_4_ke_thua.thuchanh;
+package bai_5_Avanced_Object_Oriented_Desigin.baitap.colorable;
 
-
-
-public class Square extends Rectangle  {
-    public double result = 0;
-
+public class Square extends Rectangle implements Colorable {
     public Square() {
     }
 
@@ -13,7 +9,6 @@ public class Square extends Rectangle  {
     }
 
     public Square(double side, String color, boolean filled) {
-
         super(side, side, color, filled);
     }
 
@@ -22,8 +17,8 @@ public class Square extends Rectangle  {
     }
 
     public void setSide(double side) {
-        setWidth(side);
-        setLength(side);
+        super.setWidth(side);
+        super.setLength(side);
     }
 
     @Override
@@ -44,20 +39,8 @@ public class Square extends Rectangle  {
                 + super.toString();
     }
 
-
-
-
-    public static void main(String[] args) {
-        Square square = new Square();
-        System.out.println(square);
-
-        square = new Square(2.3);
-        System.out.println(square);
-
-        square = new Square(5.8, "yellow", true);
-        System.out.println(square);
+    @Override
+    public void howToColor() {
+        System.out.println("Color all four sides.");
     }
-
-
-
 }

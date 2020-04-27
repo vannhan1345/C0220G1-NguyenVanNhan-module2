@@ -1,4 +1,4 @@
-package model;
+package case_Study.models;
 
 import java.util.Scanner;
 import java.util.UUID;
@@ -11,11 +11,11 @@ public class Main {
         System.out.println("Enter name service: ");
         villa.setNameService(sc.nextLine());
         System.out.println("Enter Area Used: ");
-        villa.setAreaUsed(sc.nextLine());
+        villa.setAreaUsed(sc.nextDouble());
         System.out.println("Enter rental costs: ");
-        villa.setRentalCosts(sc.nextLine());
+        villa.setRentalCosts(sc.nextDouble());
         System.out.println("Enter max number of people: ");
-        villa.setMaxNumberOfPeople(sc.nextLine());
+        villa.setMaxNumberOfPeople(sc.nextInt());
         sc.nextLine();
         System.out.println("Enter type rent: ");
         villa.setTypeRent(sc.nextLine());
@@ -24,9 +24,9 @@ public class Main {
         System.out.println("Enter Convenient Description: ");
         ((Villa)villa).setConvenientDescription(sc.nextLine());
         System.out.println("Enter pool Area: ");
-        ((Villa)villa).setPoolArea(sc.nextLine());
+        ((Villa)villa).setPoolArea(sc.nextDouble());
         System.out.println("Enter number of floors: ");
-        ((Villa)villa).setNumberOfFloors(sc.nextLine());
+        ((Villa)villa).setNumberOfFloors(sc.nextInt());
         System.out.println(villa.showInfor());
 
     }

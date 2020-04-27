@@ -1,9 +1,7 @@
 package bai_4_ke_thua.thuchanh;
 
-import bai_5_Avanced_Object_Oriented_Desigin.baitap.colorable.Colorable;
-import bai_5_Avanced_Object_Oriented_Desigin.baitap.resizeable.Resizeable;
 
-public class Circle extends Shape implements Resizeable {
+public class Circle extends Shape  {
     protected double radius=1.0;
     public double result = 0;
     public Circle(){
@@ -35,11 +33,7 @@ public class Circle extends Shape implements Resizeable {
                 ", which is a subclass of " +super.toString();
 
     }
-    @Override
-    public void resize(double percent) {
-        result = getArea()+getArea()*percent/100;
-        System.out.println(result);
-    }
+
 
 
     public static void main(String[] args) {
