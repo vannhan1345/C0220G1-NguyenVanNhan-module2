@@ -12,10 +12,10 @@ public abstract class Services  implements Massage, Karaoke,Food, Drink,RentCar 
 
     }
 
-    public Services(String id, String nameService, String areUsed, String rentalCosts, String maxNumberOfPeople, String typeRent) {
+    public Services(String id, String nameService, String areaUsed, String rentalCosts, String maxNumberOfPeople, String typeRent) {
         this.id = id;
         this.nameService = nameService;
-        this.areaUsed = areUsed;
+        this.areaUsed = areaUsed;
         this.rentalCosts = rentalCosts;
         this.maxNumberOfPeople = maxNumberOfPeople;
         this.typeRent = typeRent;
@@ -68,6 +68,7 @@ public abstract class Services  implements Massage, Karaoke,Food, Drink,RentCar 
     public void setTypeRent(String typeRent) {
         this.typeRent = typeRent;
     }
+
     public abstract String showInfor();
 
 

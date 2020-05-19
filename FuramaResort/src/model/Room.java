@@ -1,23 +1,23 @@
 package model;
 
 public class Room extends Services {
-    private String freeServiceIncluded;
+    private String freeService;
 
     public Room() {
     }
 
     public Room(String id, String nameService, String areUsed, String rentalCosts,
-                String maxNumberOfPeople, String typeRent, String freeServiceIncluded) {
+                String maxNumberOfPeople, String typeRent, String freeService) {
         super(id, nameService, areUsed, rentalCosts, maxNumberOfPeople, typeRent);
-        this.freeServiceIncluded = freeServiceIncluded;
+        this.freeService = freeService;
     }
 
-    public String getFreeServiceIncluded() {
-        return freeServiceIncluded;
+    public String getFreeService() {
+        return freeService;
     }
 
-    public void setFreeServiceIncluded(String freeServiceIncluded) {
-        this.freeServiceIncluded = freeServiceIncluded;
+    public void setFreeService(String freeServiceIncluded) {
+        this.freeService = freeServiceIncluded;
     }
 
     @Override
@@ -28,7 +28,7 @@ public class Room extends Services {
                 "\n4.Rental costs: "+super.getRentalCosts()+
                 "\n5.Max number of people: "+super.getMaxNumberOfPeople()+
                 "\n6.Type rent: "+super.getTypeRent()+
-                "\n7.Free service included: "+this.freeServiceIncluded+"\n+" +
+                "\n7.Free service included: "+this.freeService+"\n+" +
                 "11.Other Service:  "+
                 "\n   1.Service name: "+Massage.NAME+" ,Cost: "+Massage.COST+Massage.UNIT+
                 "\n   2.Service name: "+Karaoke.NAME+" ,Cost: "+Karaoke.COST+Karaoke.UNIT+
