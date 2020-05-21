@@ -17,7 +17,7 @@ public class CustomerController {
     @Autowired
     CustomerService customerService;
 
-    @GetMapping("/ư")
+    @GetMapping("/")
     public ModelAndView showCreateForm(){
         ModelAndView modelAndView = new ModelAndView("/customer/create");
         modelAndView.addObject("customer", new Customer());
@@ -49,7 +49,7 @@ public class CustomerController {
             return modelAndView;
 
         }else {
-            ModelAndView modelAndView = new ModelAndView("/error.404");
+            ModelAndView modelAndView = new ModelAndView("/customer/error.404");
             return modelAndView;
         }
     }

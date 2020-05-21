@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<h3>Read Blog</h3>
+<p>
+    <a th:href="@{/blog}">
+        Back to log list
+    </a>
+</p>
+<div >
+    <div >
+        <label>Name blog:</label>
+        <label th:text="${blog.name}"></label>
+    </div>
+    <div >
+        <label>Content</label>
+        <label th:text="${blog.content}"></label>
+    </div>
+</div>
+
+</body>
+</html>
