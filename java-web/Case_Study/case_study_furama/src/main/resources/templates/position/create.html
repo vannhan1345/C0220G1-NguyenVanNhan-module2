@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Position</title>
+</head>
+<body>
+<a href="/list-employee">Employee List</a><br>
+<th:block th:if="${message}">
+    <span th:text="${message}"></span>
+</th:block><br>
+<form th:action="@{/create-position}" th:object="${position}" th:method="post">
+    <table>
+        <tr>
+            <td>Name Position: </td>
+            <td><input type="text" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Create"></td>
+        </tr>
+
+
+    </table>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Service</title>
+</head>
+<body>
+<a href="/list-service">List Service</a>
+<h1>Update Service</h1>
+<th:block th:if="${message}">
+    <a th:text="${message}"></a>
+</th:block>
+<form th:action="@{/edit-service}" th:object="${service}" method="post">
+    <input type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type=text th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td>Area:</td>
+            <td><input type=text th:field="*{area}"></td>
+        </tr>
+        <tr>
+            <td>Max number of people:</td>
+            <td><input type=text th:field="*{maxNumberOfPeople}"></td>
+        </tr>
+        <tr>
+            <td>Number of floor:</td>
+            <td><input type=text th:field="*{numberOfFloor}"></td>
+        </tr>
+        <tr>
+            <td>Rent cost:</td>
+            <td><input type=text th:field="*{rentCost}"></td>
+        </tr>
+        <tr>
+            <td>Status:</td>
+            <td><input type=text th:field="*{status}"></td>
+        <tr>
+            <td>Type Customer:</td>
+            <td>
+                <select th:field="*{typeService}">
+                    <option th:each="type: ${typeservice} " th:value="${type.id}" th:text="${type.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Type Rent:</td>
+            <td>
+                <select th:field="*{typeRent}">
+                    <option th:each="type: ${typerent} " th:value="${type.id}" th:text="${type.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Update"></td>
+        </tr>
+    </table>
+
+</form>
+
+</body>
+</html>

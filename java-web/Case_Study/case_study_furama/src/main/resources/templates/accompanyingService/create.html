@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create type Customer</title>
+</head>
+<body>
+<!--<a href="/list-customer">Customer List</a><br>-->
+<h1>Create new Accompanying Service</h1>
+<th:block th:if="${message}">
+    <span th:text="${message}"></span>
+</th:block><br>
+<form th:action="@{/create-accompanying}" th:object="${accompanying}" th:method="post">
+    <table>
+        <tr>
+            <td>Name Accompanying Service: </td>
+            <td><input type="text" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td>Price: </td>
+            <td><input type="text" th:field="*{price}"></td>
+        </tr>
+        <tr>
+            <td>Availability status: </td>
+            <td><input type="text" th:field="*{availabilityStatus}"></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Create"></td>
+        </tr>
+
+
+    </table>
+
+</form>
+
+</body>
+</html>

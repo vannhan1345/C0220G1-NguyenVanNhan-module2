@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Employee</title>
+</head>
+<body>
+<form th:action="@{/delete-employee}" th:object="${employee}" method="post">
+    <input type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td>Name: </td>
+            <td><input type="text" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td>BirthDay: </td>
+            <td><input type="text" th:field="*{birthDay}"></td>
+        </tr>
+        <tr>
+            <td>IdCard: </td>
+            <td><input type="text" th:field="*{idCard}"></td>
+        </tr>
+        <tr>
+            <td>Number phone: </td>
+            <td><input type="text" th:field="*{numberPhone}"></td>
+        </tr>
+        <tr>
+            <td>Salary: </td>
+            <td><input type="text" th:field="*{salary}"></td>
+        </tr>
+        <tr>
+            <td>Email: </td>
+            <td><input type="text" th:field="*{email}"></td>
+        </tr>
+        <tr>
+            <td>Address: </td>
+            <td><input type="text" th:field="*{address}"></td>
+        </tr>
+        <tr>
+            <td>Position: </td>
+            <td>
+                <select th:field="*{position}">
+                    <option th:each="po: ${position} " th:value="${po.id}" th:text="${po.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Level: </td>
+            <td>
+                <select th:field="*{level}">
+                    <option th:each="lev : ${level} " th:value="${lev.id}" th:text="${lev.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Department: </td>
+            <td>
+                <select th:field="*{department}">
+                    <option th:each="de: ${department} " th:value="${de.id}" th:text="${de.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Remove"></td>
+        </tr>
+    </table>
+</body>
+</html>

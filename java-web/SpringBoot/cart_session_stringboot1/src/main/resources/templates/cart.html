@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+</head>
+<body>
+<a href="/">Back to list</a>
+<h1>Cart</h1>
+<table border="3" cellpadding="4" cellspacing="0">
+    <tr style="background-color: silver">
+        <td width="200">Product Name</td>
+        <td width="100">Product Price</td>
+        <td width="120">Picture</td>
+        <td width="120">Amount</td>
+        <td width="120">Money</td>
+        <td width="120">Increase(+)</td>
+        <td width="120">Reduce(-)</td>
+        <td width="120">Delete</td>
+    </tr>
+    <tr th:each="prod: ${cart.getListProduct()}">
+        <td>
+            <p th:text="${prod.getValue().get().name}"></p>
+        </td>
+        <td th:text="${prod.getValue().get().price}"></td>
+        <th><img th:src="${prod.getValue().get().imgUrl}" width="100" height="100"/></th>
+        <td><label th:text="${cart.getListProduct().get(prod.getValue().get().name).get().amount}"></label></td>
+        <td><label th:text="${cart.getListProduct().get(prod.getValue().get().name).get().amount}*${prod.getValue().get().price}"></label></td>
+        <td><a th:href="@{/up/__${prod.getValue().get().id}__}">Increase</a></td>
+        <td><a th:href="@{/down/__${prod.getValue().get().id}__}">Reduce</a></td>
+
+        <td>
+            <a th:href="@{/delete/__${prod.getValue().get().id}__}">
+                <p th:text="Delete"></p>
+            </a>
+        </td>
+    </tr>
+    <tr>
+        <label th:text="'Total money: ' + ${cart.total}"></label>
+    </tr>
+</table>
+</body>
+</html>

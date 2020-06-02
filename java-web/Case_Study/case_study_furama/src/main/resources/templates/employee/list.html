@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee List</title>
+</head>
+<body>
+<a href="/employee">Create new Employee</a><br><br>
+<a href="/position">Create new position</a><br><br>
+<a href="/level">Create new level</a><br><br>
+<a href="/department">Create new department</a><br><br>
+<form>
+    Search by name:
+    <input name="keyword" th:value="${keyword}" type="text"/>
+    <input type="submit" value="Search"/>
+</form>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>BirthDay</th>
+        <th>IdCard</th>
+        <th>Number phone</th>
+        <th>Salary</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Position</th>
+        <th>Level</th>
+        <th>department</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <th:block th:each="em: ${listemployee}">
+        <tr>
+            <td th:text="${em.name}"></td>
+            <td th:text="${em.birthDay}"></td>
+            <td th:text="${em.idCard}"></td>
+            <td th:text="${em.numberPhone}"></td>
+            <td th:text="${em.salary}"></td>
+            <td th:text="${em.email}"></td>
+            <td th:text="${em.address}"></td>
+            <td th:text="${em.position.name}"></td>
+            <td th:text="${em.level.name}"></td>
+            <td th:text="${em.department.name}"></td>
+            <td><a th:href="@{/edit-employee/__${em.id}__ }">Edit</a></td>
+            <td><a th:href="@{/delete-employee/__${em.id}__ }">Delete</a></td>
+
+        </tr>
+    </th:block>
+    <div>
+        <a th:href="@{'/list-employee'(page=${listemployee.number - 1},keyword=${keyword})}" th:if="${listemployee.hasPrevious()}">Previous</a>
+        <span th:text="${listemployee.number + 1}"></span>/<span th:text="${listemployee.totalPages}"></span>
+        <a th:href="@{'/list-employee'(page=${listemployee.number + 1},keyword=${keyword})}" th:if="${listemployee.hasNext()}">Next</a>
+    </div>
+
+</table>
+</body>
+</html>

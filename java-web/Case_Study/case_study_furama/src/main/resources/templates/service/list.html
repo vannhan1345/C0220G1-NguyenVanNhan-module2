@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="/service">Create new Service</a><br><br>
+<a href="/typeService">Create new Type Service</a><br><br>
+<form>
+    Search by name:
+    <input name="keyword" th:value="${keyword}" type="text"/>
+    <input type="submit" value="Search"/>
+</form>
+<table border="1">
+    <tr>
+        <th>Name</th>
+        <th>Area</th>
+        <th>Max number of people</th>
+        <th>Number of floor</th>
+        <th>Rent cost</th>
+        <th>Status</th>
+        <th>Type Service</th>
+        <th>Type Rent</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <th:block th:each="ser: ${listservice}">
+        <tr>
+            <td th:text="${ser.name}"></td>
+            <td th:text="${ser.area}"></td>
+            <td th:text="${ser.maxNumberOfPeople}"></td>
+            <td th:text="${ser.numberOfFloor}"></td>
+            <td th:text="${ser.rentCost}"></td>
+            <td th:text="${ser.status}"></td>
+            <td th:text="${ser.typeService.name}"></td>
+            <td th:text="${ser.typeRent.name}"></td>
+            <td><a th:href="@{/edit-service/__${ser.id}__ }">Edit</a></td>
+            <td><a th:href="@{/delete-service/__${ser.id}__ }">Delete</a></td>
+
+        </tr>
+    </th:block>
+    <div>
+        <a th:href="@{'/list-service'(page=${listservice.number - 1},keyword=${keyword})}" th:if="${listservice.hasPrevious()}">Previous</a>
+        <span th:text="${listservice.number + 1}"></span>/<span th:text="${listservice.totalPages}"></span>
+        <a th:href="@{'/list-service'(page=${listservice.number + 1},keyword=${keyword})}" th:if="${listservice.hasNext()}">Next</a>
+    </div>
+
+</table>
+</body>
+</html>
