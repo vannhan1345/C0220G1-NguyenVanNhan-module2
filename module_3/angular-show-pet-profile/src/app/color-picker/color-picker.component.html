@@ -1,0 +1,7 @@
+<div>
+  <label>Choose color</label>
+  <input type="color" [value]="color" (change)="changeColor($event.target.value)">
+</div>
+<p>Out put:</p>
+<!--<input class="color-preview" [style.background-color]="color" >-->
+<input class="color-preview" style="background-color: {{color}}">

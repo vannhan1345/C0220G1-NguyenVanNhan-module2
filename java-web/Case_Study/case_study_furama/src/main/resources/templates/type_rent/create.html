@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create type Rent</title>
+    <th:block th:replace="layout:: layout12"></th:block>
+</head>
+<body>
+<a href="/list-service">Service List</a><br>
+<th:block th:if="${message}">
+    <span th:text="${message}"></span>
+</th:block><br>
+<form th:action="@{/create-typerent}" th:object="${typeRent}" th:method="post">
+    <table id="form">
+        <tr>
+            <td>Name Type Rent: </td>
+            <td><input type="text" th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td>Price: </td>
+            <td><input type="text" th:field="*{price}"></td>
+            <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></p></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Create"></td>
+        </tr>
+
+
+    </table>
+
+</form>
+
+</body>
+<footer th:replace="layout :: footer"></footer>
+</html>

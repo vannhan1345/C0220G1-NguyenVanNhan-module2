@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head">
+    <meta charset="UTF-8">
+    <title>Delete product</title>
+</head>
+<body>
+</th:block>
+<form th:action="@{/delete-product}" th:object="${products}" method="post">
+    <input type="hidden" name="id" th:field="*{id}">
+    <table id="form">
+        <tr>
+            <td>Name:</td>
+            <td><input type=text th:field="*{name}"></td>
+        </tr>
+        <tr>
+            <td>Type Product:</td>
+            <td><input type=text th:field="*{typeProduct}"></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td><input type=text th:field="*{price}"></td>
+        </tr>
+        <tr>
+            <td>Amount:</td>
+            <td><input type=text th:field="*{amount}"></td>
+        </tr>
+        <tr>
+            <td>Date:</td>
+            <td><input type=text th:field="*{date}"></td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td><input type=text th:field="*{description}"></td>
+        <tr>
+            <td>Type Product:</td>
+            <td>
+                <select th:field="*{typeProduct}">
+                    <option th:each="type: ${typeProduct} " th:value="${type.id}" th:text="${type.name}"></option>
+                </select>
+            </td>
+        <tr>
+            <td><input type="submit" value="Remove" onclick="return confirm('Are you sure?')"></td>
+        </tr>
+    </table>
+    </form>
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>

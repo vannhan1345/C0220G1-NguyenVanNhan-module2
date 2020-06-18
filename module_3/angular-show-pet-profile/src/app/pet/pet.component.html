@@ -1,0 +1,20 @@
+<h2>Pet profile</h2>
+<input placeholder="enter your name" [(ngModel)]="name" #txtUsername >
+<h3>your name is {{name}}</h3>
+<code>{{txtUsername.value | json}}</code>
+<br>
+<label>
+
+  Pet name:
+  <input type="text"  (keyup)="updateName($event)">
+</label>
+<br >
+<label>
+  Pet image:
+  <input type="url" (keyup)="updateImage($event)">
+</label>
+<br >
+<h3>Pet name: {{petName}}</h3>
+<img [hidden]="forgot" [src]="petImage" style="max-width: 30%">
+<br>
+<button class="alert-dark" (click)="toggleForgot()">click</button>

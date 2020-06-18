@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(function(){
+        $("#datepicker").datepicker({
+            changeMonth: true,
+            changeYear: true,
+            dateFormat: "dd/mm/yy"
+        });
+    });
+</script>
+<head th:replace="layout :: head">
+
+    <title>Create customer</title>
+
+</head>
+<body>
+<a href="/list-product">List Product</a>
+<h1>Create product</h1>
+<form th:action="@{/create-product}" method="post" th:object="${product}">
+    <th:block th:if="${message}">
+<p th:text="${message}"></p>
+    </th:block>
+    <table id="form">
+        <tr>
+            <td>Name: </td>
+            <td><input type="text" th:field="*{name}"></td>
+            <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p></td>
+        </tr>
+        <tr>
+            <td>Price: </td>
+            <td><input type="text" th:field="*{price}"></td>
+            <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></p></td>
+        </tr>
+        <tr>
+            <td>Amount:</td>: </td>
+            <td><input type="text" th:field="*{amount}"></td>
+            <p th:if="${#fields.hasErrors('amount')}" th:errors="*{amount}"></p></td>
+        </tr>
+        <tr>
+            <td>Date: </td>
+            <td><input type="text" id="datepicker" th:field="*{date}"></td>
+            <p th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></p></td>
+        </tr>
+        <tr>
+            <td>Description: </td>
+            <td><textarea  th:field="*{description}"></textarea></td>
+
+        </tr>
+        <tr>
+            <td>Type Product: </td>
+            <td>
+                <select th:field="*{typeProduct}">
+                    <option th:each="type: ${typeProduct} " th:value="${type.id}" th:text="${type.name}"></option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Create" ></td>
+        </tr>
+
+
+    </table>
+
+</form>
+<footer th:replace="layout :: footer"></footer>
+</body>
+</html>
