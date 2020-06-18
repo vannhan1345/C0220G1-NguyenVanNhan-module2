@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../bootstrap-4.5.0-dist/js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+
+<script>
+    $(document).ready(function ()  {
+        $.ajax({
+            type: "GET", //GET, DELETE, PUT...
+            url: "https://spring-student-api.herokuapp.com/info",
+            data: {
+                "apiKey": "eaf118ab-babf-43ed-a788-b66d2f0ca00c"
+            },
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            // dataType: "text",
+            success: function (data) {
+                console.log(data);
+                $('#employ');
+                for (let i in data) {
+                    let row = $('<tr>');
+                    row.append($('<td>').html(data[i].id));
+                    row.append($('<td>').html(data[i].address));
+                    row.append($('<td>').html(data[i].fullName));
+                    row.append($('<td>').html(data[i].gender));
+                    row.append($('<td>').html(data[i].birthDate));
+                    row.append($('<td>').html(data[i].phoneNumber));
+                    $('</tr>');
+                    $('#employ').append(row);
+                }
+            },
+            error: function (err) {
+                console.log('error:' + err)
+            }
+        })
+    })
+</script>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Address</th>
+        <th>Full name</th>
+        <th>Gender</th>
+        <th>Birthday</th>
+        <th>Phone number</th>
+
+    </tr>
+
+
+
+</table>
+</body>
+</html>
